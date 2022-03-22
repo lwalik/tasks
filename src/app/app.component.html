@@ -8,30 +8,17 @@
   <p class="fs-6 me-3">{{ currentDate | date: "E d MMM" }}<br /></p>
 </div>
 
-<router-outlet></router-outlet>
+<div class="position-relative">
+  <router-outlet></router-outlet>
+</div>
 
-<footer class="container">
+<footer class="container position-absolute bottom-0 mb-5">
   <div class="grid mx-auto w-75">
-    <div class="g-col-4 d-flex justify-content-center">
-      <img
-        class="img-fluid w-75"
-        src="https://previews.123rf.com/images/coolhand1180/coolhand11801804/coolhand1180180400025/99857951-top-view-of-office-desk-work-with-computer-supplies-keyboard-graphic-tablet-on-wooden-table-creative.jpg"
-        alt="img"
-      />
-    </div>
-    <div class="g-col-4 d-flex justify-content-center">
-      <img
-        class="img-fluid w-75"
-        src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29yayUyMGRlc2t8ZW58MHx8MHx8&w=1000&q=80"
-        alt="img"
-      />
-    </div>
-    <div class="g-col-4 d-flex justify-content-center">
-      <img
-        class="img-fluid w-75"
-        src="https://usu.org.au/wp-content/uploads/2018/07/desk-work-web.jpg"
-        alt="img"
-      />
+    <div
+      class="g-col-4 d-flex justify-content-center"
+      *ngFor="let img of footerIMGs"
+    >
+      <img class="img-fluid w-75" [src]="img.url" [alt]="img.alt" />
     </div>
   </div>
 </footer>
