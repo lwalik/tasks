@@ -1,1 +1,37 @@
+<header class="bg-indigo-400 p-2">
+  <div class="container text-white fs-5 mx-auto w-75">AWESOME TODO APP</div>
+</header>
+<div
+  class="container d-flex align-items-center my-3 border-bottom mx-auto w-75"
+>
+  <p class="fs-3 fw-bold me-3">TODAY</p>
+  <p class="fs-6 me-3">{{ currentDate | date: "E d MMM" }}<br /></p>
+</div>
+
 <router-outlet></router-outlet>
+
+<footer class="container">
+  <div class="grid mx-auto w-75">
+    <div class="g-col-4 d-flex justify-content-center">
+      <img
+        class="img-fluid w-75"
+        src="https://previews.123rf.com/images/coolhand1180/coolhand11801804/coolhand1180180400025/99857951-top-view-of-office-desk-work-with-computer-supplies-keyboard-graphic-tablet-on-wooden-table-creative.jpg"
+        alt="img"
+      />
+    </div>
+    <div class="g-col-4 d-flex justify-content-center">
+      <img
+        class="img-fluid w-75"
+        src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29yayUyMGRlc2t8ZW58MHx8MHx8&w=1000&q=80"
+        alt="img"
+      />
+    </div>
+    <div class="g-col-4 d-flex justify-content-center">
+      <img
+        class="img-fluid w-75"
+        src="https://usu.org.au/wp-content/uploads/2018/07/desk-work-web.jpg"
+        alt="img"
+      />
+    </div>
+  </div>
+</footer>
