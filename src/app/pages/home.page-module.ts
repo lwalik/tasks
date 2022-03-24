@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { CreateTaskFormPageModule } from './create-task-form.page-module';
-import { FooterComponentModule } from '@tasks';
+import { CurrentDateComponentModule, FooterComponentModule } from '@tasks';
 
 @NgModule({
   imports: [
     CommonModule,
     FooterComponentModule,
+    CurrentDateComponentModule,
     RouterModule.forChild([
       {
         path: '',
