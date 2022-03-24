@@ -1,13 +1,16 @@
 <lib-current-date></lib-current-date>
 
-<div
-  class="d-flex flex-column justify-content-center align-items-center h-50 pt-5 mt-5"
->
-  <h2>Get a clear view of the day ahead</h2>
-  <p>All your tasks that are due today will show up here.</p>
-  <button type="button" class="btn btn-primary" routerLink="createTask">
-    Add task
-  </button>
+<div class="grid" style="--bs-rows: 3; --bs-columns: 5">
+  <div class="g-col-3 g-start-2" style="grid-row: 2">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <h2>Get a clear view of the day ahead</h2>
+      <p>All your tasks that are due today will show up here.</p>
+      <button type="button" class="btn btn-primary" routerLink="createTask">
+        Add task
+      </button>
+    </div>
+  </div>
+  <div class="g-col-5" style="grid-row: 3">
+    <lib-footer></lib-footer>
+  </div>
 </div>
-
-<lib-footer></lib-footer>
