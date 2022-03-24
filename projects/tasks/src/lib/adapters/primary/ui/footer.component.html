@@ -1,0 +1,8 @@
+<div class="grid mx-auto w-75">
+    <div
+      class="g-col-4 d-flex justify-content-center"
+      *ngFor="let img of footerIMGs"
+    >
+      <img class="img-fluid w-75" [src]="img.url" [alt]="img.alt" />
+    </div>
+  </div>
