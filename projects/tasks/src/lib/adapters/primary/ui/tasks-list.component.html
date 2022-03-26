@@ -1,12 +1,29 @@
 <div class="list-group border-bottom w-100 py-4">
-  <label class="list-group-item border-0" *ngFor="let task of tasks$ | async">
-    <input
-      class="form-check-input me-1 rounded-circle"
-      type="checkbox"
-      value=""
-    />
-    {{ task.description }}
-  </label>
+  <div class="border-0" *ngFor="let task of tasks$ | async">
+    <div class="d-flex" *ngIf="task.done">
+      <input
+        class="form-check-input me-1 rounded-circle"
+        type="checkbox"
+        value=""
+        (change)="onCheckboxChangeed(task)"
+        checked
+      />
+
+      <p class="text-decoration-line-through">
+        {{ task.description }}
+      </p>
+    </div>
+
+    <div class="d-flex" *ngIf="!task.done">
+      <input
+        class="form-check-input me-1 rounded-circle"
+        type="checkbox"
+        value=""
+        (change)="onCheckboxChangeed(task)"
+      />
+      <p>{{ task.description }}</p>
+    </div>
+  </div>
 </div>
 
 <button type="button" class="btn btn-indigo-400 text-light mt-4">
