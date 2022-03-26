@@ -7,7 +7,7 @@ import { FooterImagesDTO } from '../../../application/ports/secondary/footer-ima
 import { filterByCriterion } from '@lowgular/shared';
 
 @Injectable()
-export class FirebaseTasksService implements GetsAllFooterImagesDtoPort {
+export class FirebaseFooterImagesService implements GetsAllFooterImagesDtoPort {
   constructor(private _client: AngularFirestore) {}
 
   getAll(criterion: Partial<FooterImagesDTO>): Observable<FooterImagesDTO[]> {
