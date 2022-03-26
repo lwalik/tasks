@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { CreateTaskFormPageModule } from './create-task-form.page-module';
-import { CurrentDateComponentModule, FooterComponentModule } from '@tasks';
+import {
+  CurrentDateComponentModule,
+  FirebaseTasksServiceModule,
+  FooterComponentModule,
+} from '@tasks';
 
 @NgModule({
   imports: [
     CommonModule,
     FooterComponentModule,
     CurrentDateComponentModule,
+    FirebaseTasksServiceModule,
     RouterModule.forChild([
       {
         path: '',
