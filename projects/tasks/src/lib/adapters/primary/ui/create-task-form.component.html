@@ -1,9 +1,20 @@
 <form [formGroup]="createTask" class="w-50">
   <textarea
     class="form-control"
-    rows="3"
+    rows="4"
+    cols="70"
     formControlName="task"
     placeholder="Task"
+    required
   ></textarea>
-  <input type="submit" value="Submit" />
+  <button
+    type="button"
+    class="btn btn-indigo-400 text-light mt-3"
+    [disabled]="!createTask.valid"
+  >
+    Add task
+  </button>
+  <button type="button" class="btn btn-outline-secondary mt-3 ms-3">
+    Cancel
+  </button>
 </form>
