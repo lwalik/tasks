@@ -2,7 +2,7 @@
   <div class="border-0" *ngFor="let task of tasks$ | async">
     <div class="d-flex" *ngIf="task.done">
       <input
-        class="form-check-input me-1 rounded-circle"
+        class="form-check-input me-1 rounded-circle bg-success"
         type="checkbox"
         value=""
         (change)="onCheckboxChangeed(task)"
@@ -26,6 +26,10 @@
   </div>
 </div>
 
-<button type="button" class="btn btn-indigo-400 text-light mt-4">
+<button
+  type="button"
+  class="btn btn-indigo-400 text-light mt-4"
+  routerLink="/createTask"
+>
   Add task
 </button>
