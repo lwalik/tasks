@@ -1,1 +1,14 @@
-<h2>test</h2>
+<div class="list-group border-bottom w-100 py-4">
+  <label class="list-group-item border-0" *ngFor="let task of tasks$ | async">
+    <input
+      class="form-check-input me-1 rounded-circle"
+      type="checkbox"
+      value=""
+    />
+    {{ task.description }}
+  </label>
+</div>
+
+<button type="button" class="btn btn-indigo-400 text-light mt-4">
+  Add task
+</button>

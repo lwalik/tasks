@@ -5,6 +5,7 @@ import { HomePage } from './home.page';
 import { CreateTaskFormPageModule } from './create-task-form.page-module';
 import {
   CurrentDateComponentModule,
+  FirebaseDateServiceModule,
   FirebaseFooterImagesServiceModule,
   FooterComponentModule,
 } from '@tasks';
@@ -15,6 +16,7 @@ import {
     FooterComponentModule,
     CurrentDateComponentModule,
     FirebaseFooterImagesServiceModule,
+    FirebaseDateServiceModule,
     RouterModule.forChild([
       {
         path: '',

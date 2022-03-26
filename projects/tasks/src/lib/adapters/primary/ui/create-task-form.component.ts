@@ -19,6 +19,7 @@ import {
 export class CreateTaskFormComponent {
   readonly createTask: FormGroup = new FormGroup({
     description: new FormControl(),
+    done: new FormControl(),
   });
 
   constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort) {}
@@ -29,6 +30,7 @@ export class CreateTaskFormComponent {
     }
     this._addsTaskDto.add({
       description: createTask.get('description')?.value,
+      done: false,
     });
     this.createTask.reset();
   }
