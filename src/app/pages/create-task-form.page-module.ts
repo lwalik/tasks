@@ -5,6 +5,7 @@ import { CreateTaskFormPage } from './create-task-form.page';
 import {
   CreateTaskFormComponentModule,
   CurrentDateComponentModule,
+  FirebaseTasksServiceModule,
   FooterComponentModule,
 } from '@tasks';
 
@@ -14,6 +15,7 @@ import {
     CreateTaskFormComponentModule,
     CurrentDateComponentModule,
     FooterComponentModule,
+    FirebaseTasksServiceModule,
     RouterModule.forChild([
       {
         path: '',

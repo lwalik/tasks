@@ -11,6 +11,7 @@
     type="button"
     class="btn btn-indigo-400 text-light mt-3"
     [disabled]="!createTask.valid"
+    (click)="onCreateTaskClicked(createTask)"
   >
     Add task
   </button>

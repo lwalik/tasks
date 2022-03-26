@@ -1,9 +1,14 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import {
   Component,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  Inject,
 } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  ADDS_TASK_DTO,
+  AddsTaskDtoPort,
+} from '../../../application/ports/secondary/adds-task.dto-port';
 
 @Component({
   selector: 'lib-create-task-form',
@@ -15,4 +20,16 @@ export class CreateTaskFormComponent {
   readonly createTask: FormGroup = new FormGroup({
     description: new FormControl(),
   });
+
+  constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort) {}
+
+  onCreateTaskClicked(createTask: FormGroup): void {
+    if (createTask.invalid) {
+      return;
+    }
+    this._addsTaskDto.add({
+      description: createTask.get('description')?.value,
+    });
+    this.createTask.reset();
+  }
 }
