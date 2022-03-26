@@ -12,5 +12,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateTaskFormComponent {
-  readonly createTask: FormGroup = new FormGroup({ task: new FormControl() });
+  readonly createTask: FormGroup = new FormGroup({
+    description: new FormControl(),
+  });
 }
