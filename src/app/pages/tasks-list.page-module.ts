@@ -11,6 +11,7 @@ import {
   TasksListComponentModule,
 } from '@tasks';
 import { FirebaseDateServiceModule } from '../../../projects/tasks/src/lib/adapters/secondary/infrastructure/firebase-date.service-module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { FirebaseDateServiceModule } from '../../../projects/tasks/src/lib/adapt
     CurrentDateComponentModule,
     FooterComponentModule,
     FirebaseFooterImagesServiceModule,
+    ModalModule,
     RouterModule.forChild([
       {
         path: '',

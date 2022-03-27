@@ -14,6 +14,10 @@ import {
   SETS_TASK_DTO,
   SetsTaskDtoPort,
 } from '../../../application/ports/secondary/sets-task.dto-port';
+import {
+  REMOVES_TASK_DTO,
+  RemovesTaskDtoPort,
+} from '../../../application/ports/secondary/removes-task.dto-port';
 
 @Component({
   selector: 'lib-tasks-list',
@@ -26,7 +30,8 @@ export class TasksListComponent {
 
   constructor(
     @Inject(GETS_ALL_TASK_DTO) private _getsAllTaskDto: GetsAllTaskDtoPort,
-    @Inject(SETS_TASK_DTO) private _setsTaskDto: SetsTaskDtoPort
+    @Inject(SETS_TASK_DTO) private _setsTaskDto: SetsTaskDtoPort,
+    @Inject(REMOVES_TASK_DTO) private _removesTaskDto: RemovesTaskDtoPort
   ) {}
 
   onCheckboxChangeed(task: Partial<TaskDTO>): void {
@@ -44,5 +49,9 @@ export class TasksListComponent {
         done: true,
       });
     }
+  }
+
+  onDeleteTaskSubmited(task: Partial<TaskDTO>): void {
+    this._removesTaskDto.remove('' + task.id);
   }
 }

@@ -5,10 +5,9 @@
     cols="70"
     formControlName="description"
     placeholder="Description"
-    required
   ></textarea>
   <button
-    type="button"
+    type="submit"
     class="btn btn-indigo-400 text-light mt-3"
     [disabled]="!createTask.valid"
     (click)="onCreateTaskClicked(createTask)"

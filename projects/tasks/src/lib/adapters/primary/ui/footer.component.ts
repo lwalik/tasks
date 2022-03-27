@@ -5,7 +5,7 @@ import {
   Inject,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FooterImagesDTO } from '../../../application/ports/secondary/footer-images.dto';
+import { FooterImageDTO } from '../../../application/ports/secondary/footer-image.dto';
 import {
   GETS_ALL_FOOTER_IMAGES_DTO,
   GetsAllFooterImagesDtoPort,
@@ -18,7 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  footerImages$: Observable<FooterImagesDTO[]> =
+  footerImages$: Observable<FooterImageDTO[]> =
     this._getsAllFooterImagesDto.getAll();
 
   constructor(

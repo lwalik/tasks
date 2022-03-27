@@ -1,5 +1,8 @@
 <div class="list-group border-bottom w-100 py-4">
-  <div class="border-0" *ngFor="let task of tasks$ | async">
+  <div
+    class="border-0 d-flex justify-content-between"
+    *ngFor="let task of tasks$ | async"
+  >
     <div class="d-flex" *ngIf="task.done">
       <input
         class="form-check-input me-1 rounded-circle bg-success"
@@ -22,6 +25,54 @@
         (change)="onCheckboxChangeed(task)"
       />
       <p>{{ task.description }}</p>
+    </div>
+
+    <div class="btn-group p-1" dropdown>
+      <button
+        id="button-split"
+        type="button"
+        dropdownToggle
+        class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+        aria-controls="dropdown-split"
+      >
+        <span class="caret"></span>
+        <span class="sr-only visually-hidden">Split button!</span>
+      </button>
+      <ul
+        id="dropdown-split"
+        *dropdownMenu
+        class="dropdown-menu"
+        role="menu"
+        aria-labelledby="button-split"
+      >
+        <li role="menuitem">
+          <button
+            type="submit"
+            class="dropdown-item"
+            (click)="onDeleteTaskSubmited(task)"
+          >
+            Delete task
+          </button>
+        </li>
+        <li role="menuitem">
+          <button
+            type="submit"
+            class="dropdown-item"
+            (click)="onDeleteTaskSubmited(task)"
+          >
+            Delete task
+          </button>
+        </li>
+        <li role="menuitem">
+          <button
+            type="submit"
+            class="dropdown-item"
+            (click)="onDeleteTaskSubmited(task)"
+          >
+            Delete task
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {
   Component,
   ViewEncapsulation,
@@ -18,7 +18,7 @@ import {
 })
 export class CreateTaskFormComponent {
   readonly createTask: FormGroup = new FormGroup({
-    description: new FormControl(),
+    description: new FormControl('', Validators.required),
     done: new FormControl(),
   });
 
