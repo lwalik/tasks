@@ -2,7 +2,14 @@ import {
   Component,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  Inject,
 } from '@angular/core';
+import { Observable } from 'rxjs';
+import { FooterImageDTO } from '../../../application/ports/secondary/footer-image.dto';
+import {
+  GETS_ALL_FOOTER_IMAGES_DTO,
+  GetsAllFooterImagesDtoPort,
+} from '../../../application/ports/secondary/gets-all-footer-images.dto-port';
 
 @Component({
   selector: 'lib-footer',
@@ -11,18 +18,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  footerIMGs = [
-    {
-      url: 'https://previews.123rf.com/images/coolhand1180/coolhand11801804/coolhand1180180400025/99857951-top-view-of-office-desk-work-with-computer-supplies-keyboard-graphic-tablet-on-wooden-table-creative.jpg',
-      alt: 'img',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29yayUyMGRlc2t8ZW58MHx8MHx8&w=1000&q=80',
-      alt: 'img',
-    },
-    {
-      url: 'https://usu.org.au/wp-content/uploads/2018/07/desk-work-web.jpg',
-      alt: 'img',
-    },
-  ];
+  footerImages$: Observable<FooterImageDTO[]> =
+    this._getsAllFooterImagesDto.getAll();
+
+  constructor(
+    @Inject(GETS_ALL_FOOTER_IMAGES_DTO)
+    private _getsAllFooterImagesDto: GetsAllFooterImagesDtoPort
+  ) {}
 }
