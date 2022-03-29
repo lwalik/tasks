@@ -3,7 +3,7 @@
     class="border-0 d-flex justify-content-between"
     *ngFor="let task of tasks$ | async"
   >
-    <div class="d-flex align-items-center" *ngIf="task.done">
+    <div class="d-flex align-items-center" *ngIf="task.isDone">
       <input
         class="form-check-input me-1 rounded-circle bg-success"
         type="checkbox"
@@ -17,7 +17,7 @@
       </p>
     </div>
 
-    <div class="d-flex align-items-center" *ngIf="!task.done">
+    <div class="d-flex align-items-center" *ngIf="!task.isDone">
       <input
         class="form-check-input me-1 rounded-circle"
         type="checkbox"

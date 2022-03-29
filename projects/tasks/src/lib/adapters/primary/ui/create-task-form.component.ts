@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 export class CreateTaskFormComponent {
   readonly createTask: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
-    done: new FormControl(),
+    isDone: new FormControl(),
   });
 
   constructor(
@@ -34,7 +34,7 @@ export class CreateTaskFormComponent {
     }
     this._addsTaskDto.add({
       description: createTask.get('description')?.value,
-      done: false,
+      isDone: false,
     });
     this.createTask.reset();
     this.router.navigate(['/tasksList']);

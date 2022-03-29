@@ -36,17 +36,17 @@ export class TasksListComponent {
 
   onCheckboxChangeed(task: Partial<TaskDTO>): void {
     console.log(task);
-    if (task.done) {
+    if (task.isDone) {
       this._setsTaskDto.set({
         id: task.id,
         description: task.description,
-        done: false,
+        isDone: false,
       });
     } else {
       this._setsTaskDto.set({
         id: task.id,
         description: task.description,
-        done: true,
+        isDone: true,
       });
     }
   }
