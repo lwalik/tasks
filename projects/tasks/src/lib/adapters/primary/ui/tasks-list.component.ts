@@ -34,21 +34,12 @@ export class TasksListComponent {
     @Inject(REMOVES_TASK_DTO) private _removesTaskDto: RemovesTaskDtoPort
   ) {}
 
-  onCheckboxChangeed(task: Partial<TaskDTO>): void {
-    console.log(task);
-    if (task.isDone) {
-      this._setsTaskDto.set({
-        id: task.id,
-        description: task.description,
-        isDone: false,
-      });
-    } else {
-      this._setsTaskDto.set({
-        id: task.id,
-        description: task.description,
-        isDone: true,
-      });
-    }
+  onCheckboxChanged(task: Partial<TaskDTO>): void {
+    this._setsTaskDto.set({
+      id: task.id,
+      description: task.description,
+      isDone: !task.isDone,
+    });
   }
 
   onDeleteTaskSubmited(task: Partial<TaskDTO>): void {
