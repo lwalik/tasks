@@ -9,6 +9,7 @@ import {
   ADDS_TASK_DTO,
   AddsTaskDtoPort,
 } from '../../../application/ports/secondary/adds-task.dto-port';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-create-task-form',
@@ -22,9 +23,12 @@ export class CreateTaskFormComponent {
     done: new FormControl(),
   });
 
-  constructor(@Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort) {}
+  constructor(
+    @Inject(ADDS_TASK_DTO) private _addsTaskDto: AddsTaskDtoPort,
+    private router: Router
+  ) {}
 
-  onCreateTaskClicked(createTask: FormGroup): void {
+  onCreateTaskSubmitted(createTask: FormGroup): void {
     if (createTask.invalid) {
       return;
     }
@@ -33,5 +37,6 @@ export class CreateTaskFormComponent {
       done: false,
     });
     this.createTask.reset();
+    this.router.navigate(['/tasksList']);
   }
 }

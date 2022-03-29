@@ -3,7 +3,7 @@
     class="border-0 d-flex justify-content-between"
     *ngFor="let task of tasks$ | async"
   >
-    <div class="d-flex" *ngIf="task.done">
+    <div class="d-flex align-items-center" *ngIf="task.done">
       <input
         class="form-check-input me-1 rounded-circle bg-success"
         type="checkbox"
@@ -12,32 +12,33 @@
         checked
       />
 
-      <p class="text-decoration-line-through">
+      <p class="text-decoration-line-through m-0">
         {{ task.description }}
       </p>
     </div>
 
-    <div class="d-flex" *ngIf="!task.done">
+    <div class="d-flex align-items-center" *ngIf="!task.done">
       <input
         class="form-check-input me-1 rounded-circle"
         type="checkbox"
         value=""
         (change)="onCheckboxChangeed(task)"
       />
-      <p>{{ task.description }}</p>
+      <p class="m-0">{{ task.description }}</p>
     </div>
 
-    <div class="btn-group p-1" dropdown>
-      <button
+    <div class="btn-group p-1 m-0" dropdown>
+      <span
         id="button-split"
         type="button"
         dropdownToggle
-        class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+        class="fs-3"
         aria-controls="dropdown-split"
-      >
-        <span class="caret"></span>
-        <span class="sr-only visually-hidden">Split button!</span>
-      </button>
+        >...
+        <!-- <span class="caret"></span>
+        <span class="sr-only visually-hidden">Split button!</span> -->
+      </span>
+
       <ul
         id="dropdown-split"
         *dropdownMenu
