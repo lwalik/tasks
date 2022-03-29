@@ -50,7 +50,7 @@
           <button
             type="submit"
             class="dropdown-item"
-            (click)="onDeleteTaskSubmited(task)"
+            (click)="openModal(template)"
           >
             Delete task
           </button>
@@ -59,7 +59,7 @@
           <button
             type="submit"
             class="dropdown-item"
-            (click)="onDeleteTaskSubmited(task)"
+            (click)="openModal(template)"
           >
             Delete task
           </button>
@@ -68,19 +68,50 @@
           <button
             type="submit"
             class="dropdown-item"
-            (click)="onDeleteTaskSubmited(task)"
+            (click)="openModal(template)"
           >
             Delete task
           </button>
         </li>
       </ul>
     </div>
+
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Delete Task</h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          aria-label="Close"
+          (click)="modalRef?.hide()"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">Are you sure you want to delete this task?</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="modalRef?.hide()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="onDeleteTaskSubmited(task)"
+        >
+          Delete task
+        </button>
+      </div>
+    </ng-template>
   </div>
 </div>
 
 <button
   type="button"
-  class="btn btn-indigo-400 text-light mt-4"
+  class="btn bg-indigo-400 text-light mt-4"
   routerLink="/createTask"
 >
   Add task
