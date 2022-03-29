@@ -43,6 +43,6 @@ export class TasksListComponent {
   }
 
   onDeleteTaskSubmited(task: Partial<TaskDTO>): void {
-    this._removesTaskDto.remove('' + task.id);
+    this._removesTaskDto.remove(`${task.id}`);
   }
 }
