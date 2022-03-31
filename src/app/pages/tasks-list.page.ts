@@ -9,5 +9,6 @@ import {
   templateUrl: './tasks-list.page.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'w-100' },
 })
 export class TasksListPage {}

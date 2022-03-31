@@ -3,7 +3,6 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   Inject,
-  TemplateRef,
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TaskDTO } from '../../../application/ports/secondary/task.dto';
@@ -21,6 +20,11 @@ import {
 } from '../../../application/ports/secondary/removes-task.dto-port';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {
+  TASK_DTO_STORAGE,
+  TaskDtoStoragePort,
+} from '../../../application/ports/secondary/task-dto.storage-port';
+import { ConfirmDeleteModalComponent } from './confirm-delete-modal.component';
 
 @Component({
   selector: 'lib-tasks-list',
@@ -35,14 +39,11 @@ export class TasksListComponent {
     @Inject(GETS_ALL_TASK_DTO) private _getsAllTaskDto: GetsAllTaskDtoPort,
     @Inject(SETS_TASK_DTO) private _setsTaskDto: SetsTaskDtoPort,
     @Inject(REMOVES_TASK_DTO) private _removesTaskDto: RemovesTaskDtoPort,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    @Inject(TASK_DTO_STORAGE) private _taskDtoStorage: TaskDtoStoragePort
   ) {}
 
   modalRef?: BsModalRef;
-
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
 
   onCheckboxChanged(task: Partial<TaskDTO>): void {
     this._setsTaskDto.set({
@@ -52,8 +53,8 @@ export class TasksListComponent {
     });
   }
 
-  onDeleteTaskSubmited(task: Partial<TaskDTO>): void {
-    this._removesTaskDto.remove(`${task.id}`);
-    this.modalRef?.hide();
+  onDeleteTaskButtonClicked(task: TaskDTO): void {
+    this._taskDtoStorage.next(task);
+    this.modalRef = this.modalService.show(ConfirmDeleteModalComponent);
   }
 }

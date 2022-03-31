@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TasksListPage } from './tasks-list.page';
 import {
+  ConfirmDeleteModalComponentModule,
   CreateTaskFormComponentModule,
   CurrentDateComponentModule,
   FirebaseFooterImagesServiceModule,
   FirebaseTasksServiceModule,
   FooterComponentModule,
+  InMemoryTaskStorageModule,
   TasksListComponentModule,
+  DateServiceModule,
 } from '@tasks';
-import { FirebaseDateServiceModule } from '../../../projects/tasks/src/lib/adapters/secondary/infrastructure/firebase-date.service-module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
@@ -22,13 +24,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FooterComponentModule,
     FirebaseFooterImagesServiceModule,
     ModalModule,
+    ConfirmDeleteModalComponentModule,
+    InMemoryTaskStorageModule,
     RouterModule.forChild([
       {
         path: '',
         component: TasksListPage,
       },
     ]),
-    FirebaseDateServiceModule,
+    DateServiceModule,
   ],
   declarations: [TasksListPage],
   providers: [],

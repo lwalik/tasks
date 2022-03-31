@@ -20,7 +20,6 @@ import { Router } from '@angular/router';
 export class CreateTaskFormComponent {
   readonly createTask: FormGroup = new FormGroup({
     description: new FormControl('', Validators.required),
-    isDone: new FormControl(),
   });
 
   constructor(
