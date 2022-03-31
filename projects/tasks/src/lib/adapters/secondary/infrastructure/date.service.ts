@@ -4,7 +4,7 @@ import { GetsAllDateDtoPort } from '../../../application/ports/secondary/gets-al
 import { DateDTO } from '../../../application/ports/secondary/date.dto';
 
 @Injectable()
-export class FirebaseDateService implements GetsAllDateDtoPort {
+export class DateService implements GetsAllDateDtoPort {
   getAll(): Observable<DateDTO> {
     return of({
       currentDate: new Date(),
